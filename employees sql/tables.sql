@@ -57,3 +57,18 @@ create table titles(
 
 select * from titles
 
+Alter table department_mangs add constraint fk_department_mangs_dept_no foreign key(dept_no)
+references departments(dept_no);
+
+Alter table department_mangs add constraint fk_department_mangs_emp_no foreign key(emp_no)
+references employees(emp_no);
+
+Alter table department_emps add constraint fk_department_emp_emp_no foreign key(emp_no)
+references employees(emp_no);
+
+Alter table department_emps add constraint fk_department_emp_dept_no foreign key(dept_no)
+references departments(dept_no);
+
+Alter table salaries add constraint fk_salaries_emp_no foreign key(emp_no)
+references employees(emp_no);
+
