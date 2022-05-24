@@ -35,6 +35,25 @@ from employees
 where first_name = 'Hercules%' and last_name like 'B%';
 
 --List of employees in sales department
+select departments.dept_name, employees.last_name, employees.first_name, employees.emp_no
+from department_emps
+join departments
+on department_emps.dept_no = departments.dept_no
+join employees
+on department_emps.emp_no = employees.emp_no
+where departments.dept_name = 'Sales'
 
+--List all employees in sales and development
+select departments.dept_name, employees.last_name, employees.first_name, employees.emp_no
+from department_emps
+join departments
+on department_emps.dept_no = departments.dept_no
+join employees
+on department_emps.emp_no = employees.emp_no
+where departments.dept_name = 'Sales' or departments.dept_name = 'Development'
 
-
+--List of employees that share last name
+select last_name, count(last_name) AS "last_name_frequency"
+from employees 
+group by last_name
+order by "last_name_frequency" DESC Nulls last;
